@@ -1,0 +1,10 @@
+<?php
+$this->title = "adduserpage";
+$this->headTitle($this->title);
+
+?>
+<p><a href="<?php echo $this->url(array('controller'=>'index',
+    'action'=>'adduser', 'check'=>'go'));?>">Add new user</a></p>
+
+<p><a href="<?php echo $this->url(array('controller'=>'index',
+    'action'=>'logout'));?>">ログインページに戻る</a></p>

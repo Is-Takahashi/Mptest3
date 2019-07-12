@@ -1,0 +1,24 @@
+<?php
+$this->title = "ホーム";
+$this->headTitle($this->title);
+?>
+<p><a href="<?php echo $this->url(array('controller'=>'admin',
+    'action'=>'addcomment'));?>">コメント追加</a></p>
+
+<p><a href="<?php echo $this->url(array('controller'=>'index',
+    'action'=>'logout'));?>">ログアウト</a></p>
+	
+<table>
+
+<?php foreach($this->comment as $comment) : ?>
+<tr>
+    <td><?php echo $this->escape($comment->id);?></td>
+    <td><?php echo $this->escape($comment->dtime);?></td>
+    <td>いいね数:<?php echo $this->escape($comment->good);?></td>
+    <td><a href="<?php echo $this->url(array('controller'=>'admin',
+    'action'=>'good', 'Num'=>$comment->Num));?>">いいね!</a></td>
+    <td><?php echo $this->escape($comment->comment);?></td>
+    
+</tr>
+<?php endforeach; ?>
+</table>
