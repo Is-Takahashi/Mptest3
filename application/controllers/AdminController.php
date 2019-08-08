@@ -71,7 +71,6 @@ class AdminController extends Zend_Controller_Action
                 $form->populate($formData);
             }
         }
-
     }
 
     public function goodAction()
@@ -79,12 +78,9 @@ class AdminController extends Zend_Controller_Action
         //いいねを押された時、いいねに1加算するための処理
 
         //現在のいいねの数を取得して、addGoodファンクションを呼び出す。終わったら元のindexのページに戻る
-        $goodnum = $this->getParam('Num');
+        $goodnum = $this->getParam('Num');//いいねしたいコメントの番号を取得
         $goods = new Application_Model_DbTable_Commentlist();
         $goods->addGood($goodnum);
         $this->_helper->redirector('index');
     }
-
-
 }
-

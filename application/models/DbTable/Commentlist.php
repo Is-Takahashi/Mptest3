@@ -25,21 +25,24 @@ class Application_Model_DbTable_Commentlist extends Zend_Db_Table_Abstract
             'good' => $good,
         );
 
-        $this->insert($data); //DBに新しいコメントを追加
+        //DBに新しいコメントを追加
+        $this->insert($data);
     }
 
     public function addGood($num)
     {
 
-        $row = $this->fetchRow('Num = ' . $num); //プライマリキーから選択した行を特定してDBから取り出す
-        $goodplus = $row->good; //現在のいいねの数
+        //プライマリキーから選択した行を特定してDBから取り出す
+        $row = $this->fetchRow('Num = ' . $num);
+        //現在のいいねの数
+        $goodplus = $row->good;
         $goodplus++;
         $data = array(
             'good' => $goodplus,
         );
-        $this->update($data, 'num ='. (int)$num); //1加算してからDBを更新
+        //いいねの値を1加算してからDBを更新
+        $this->update($data, 'num ='. (int)$num);
 
     }
 
 }
-
